@@ -1,4 +1,6 @@
 package com.codepath.rkpandey.instagram;
 
-public class ParseApplication {
+import android.app.Application;
+
+public class ParseApplication extends Application {
 }
