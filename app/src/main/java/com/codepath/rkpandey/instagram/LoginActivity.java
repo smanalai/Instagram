@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -28,24 +29,26 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         if(ParseUser.getCurrentUser() != null){
-            gotMainActivity();
+            goMainActivity();
         }
 
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnlogin);
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Log.i(TAG, "onClick login button");
+            public void onClick(View v) {
+                Log.i(TAG, "onClick: login button");
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
-                login(username, password);
+                loginUser(username, password);
             }
         });
+
     }
 
-    private void login(String username, String password){
+    private void loginUser(String username, String password){
         Log.i(TAG, "Attempting to login user" + username);
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
@@ -57,14 +60,14 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
                 //Todo: navigate to new activity if the user has signed properly
-                gotMainActivity();
+                goMainActivity();
                 Toast.makeText(LoginActivity.this, "Success!", Toast.LENGTH_SHORT).show();
 
             }
         });
     }
 
-    private void gotMainActivity() {
+    private void goMainActivity() {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         finish();
