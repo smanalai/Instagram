@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etUsername;
     private EditText etPassword;
     private Button btnLogin;
+    private Button btnSignup;
 
 
     @Override
@@ -35,6 +36,17 @@ public class LoginActivity extends AppCompatActivity {
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnlogin);
+        btnSignup = findViewById(R.id.btnSignup);
+
+        btnSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "onClick: logout button");
+                String username = etUsername.getText().toString();
+                String password = etPassword.getText().toString();
+                signupUser(username, password);
+            }
+        });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +55,25 @@ public class LoginActivity extends AppCompatActivity {
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 loginUser(username, password);
+            }
+        });
+
+    }
+
+    private void signupUser(String username, String password) {
+        ParseUser user = new ParseUser();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.signUpInBackground(new SignUpCallback() {
+            public void done(ParseException e) {
+                if (e == null) {
+                    // Hooray! Let them use the app now.
+                    goMainActivity();
+                } else {
+                    // Sign up didn't succeed. Look at the ParseException
+                    // to figure out what went wrong
+                    Log.e(TAG, "Error on signup: ", e);
+                }
             }
         });
 
