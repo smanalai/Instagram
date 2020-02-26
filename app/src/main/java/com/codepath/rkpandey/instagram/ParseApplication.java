@@ -13,9 +13,9 @@ public class ParseApplication extends Application {
         // clientKey is not needed unless explicitly configured
         // any network interceptors must be added with the Configuration Builder given this syntax
         Parse.initialize(new Parse.Configuration.Builder(this)
-                .applicationId("sama-instagram") // should correspond to APP_ID env variable
-                .clientKey("SamaManalaiCodePath")  // set explicitly unless clientKey is explicitly configured on Parse server
-                .server("https://sama-instagram.herokuapp.com/parse").build());
+                .applicationId("instagram-samaapp") // should correspond to APP_ID env variable
+                .clientKey("myInstagramApp")  // set explicitly unless clientKey is explicitly configured on Parse server
+                .server("https://instagram-samaapp.herokuapp.com/parse").build());
 
     }
 }
