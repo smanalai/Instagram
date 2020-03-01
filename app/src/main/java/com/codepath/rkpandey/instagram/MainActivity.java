@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.codepath.rkpandey.instagram.fragments.ComposeFragment;
 import com.codepath.rkpandey.instagram.fragments.PostsFragment;
+import com.codepath.rkpandey.instagram.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.action_profile:
                     default:
                         //ToDO:Swap fragment here
-                        fragment = new ComposeFragment();
+                        fragment = new ProfileFragment();
                         Toast.makeText(MainActivity.this, "Profile!", Toast.LENGTH_SHORT).show();
                         break;
                 }
