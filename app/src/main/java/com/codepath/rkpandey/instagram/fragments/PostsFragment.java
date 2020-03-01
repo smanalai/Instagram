@@ -26,7 +26,7 @@ public class PostsFragment extends Fragment {
     public static final String TAG = "PostsFragment";
     private RecyclerView rvPosts;
     protected PostsAdapter adapter;
-    protected List<Post> myPosts;
+    protected List<Post> allPosts;
 
     @Nullable
     @Override
@@ -38,8 +38,8 @@ public class PostsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         rvPosts = view.findViewById(R.id.rvPosts);
 
-        myPosts = new ArrayList<>();
-        adapter = new PostsAdapter(getContext(), myPosts);
+        allPosts = new ArrayList<>();
+        adapter = new PostsAdapter(getContext(), allPosts);
         rvPosts.setAdapter(adapter);
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
         queryPosts();
@@ -58,13 +58,11 @@ public class PostsFragment extends Fragment {
                     return;
                 }
 
-                myPosts.addAll(posts);
+                allPosts.addAll(posts);
                 adapter.notifyDataSetChanged();
-                for (Post post : posts) {
-                    Log.i(TAG, "Post: " + post.getDescription() + ", username: " + post.getUser().getUsername());
                 }
 
-            }
+
         });
     }
 }
