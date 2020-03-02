@@ -1,6 +1,7 @@
 package com.codepath.rkpandey.instagram;
 
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.codepath.rkpandey.instagram.Post;
+import com.codepath.rkpandey.instagram.R;
 import com.parse.ParseFile;
 
 import java.util.List;
@@ -39,8 +42,6 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
 
     }
 
-
-
     @Override
     public int getItemCount() {
         return posts.size();
@@ -68,8 +69,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                 Glide.with(context).load(post.getImage().getUrl()).into(ivImage);
             }
         }
-
-        }
+    }
 
     public void clear() {
         posts.clear();
@@ -81,5 +81,4 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         posts.addAll(list);
         notifyDataSetChanged();
     }
-
 }
