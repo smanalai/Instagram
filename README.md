@@ -34,7 +34,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img  alt="+1" title="+1"  src='https://github.com/smanalai/Instagram/blob/master/Instagrampart1.gif' style="vertical-align:middle" width="20" height="20"  title='Video Walkthrough'  alt='Video Walkthrough' />
+<img  alt="+1" title="+1"  src='https://github.com/smanalai/Instagram/blob/master/Instagrampart1.gif' style="vertical-align:middle" width="300" height="300"  title='Video Walkthrough'  alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
